@@ -6,12 +6,12 @@ PER_DEVICE_BATCH_SIZE=${PER_DEVICE_BATCH_SIZE:-2}
 GRADIENT_ACC=$((BATCH_SIZE / PER_DEVICE_BATCH_SIZE / GPUS))
 
 
-export PYTHONPATH="${PYTHONPATH}:/Volumes/dsc_lab/dsc_sandbox_tbls/test/InternVL-main/internvl_chat/internvl/train/"
-export MASTER_PORT=34229
+export PYTHONPATH="${PYTHONPATH}:/Volumes/dsc_lab/dsc_sandbox_tbls/test/InternVL-main/internvl_chat/"
+export MASTER_PORT="/Volumes/dsc_lab/dsc_sandbox_tbls/test/InternVL-main/internvl_chat/"
 export TF_CPP_MIN_LOG_LEVEL=3
 export LAUNCHER=pytorch
 
-OUTPUT_DIR='/Workspace/Users/kevin.zhang@vgw.co/internvl_output'
+OUTPUT_DIR='/Volumes/dsc_lab/dsc_sandbox_tbls/test/output/'
 
 if [ ! -d "$OUTPUT_DIR" ]; then
   mkdir -p "$OUTPUT_DIR"
@@ -32,7 +32,7 @@ torchrun \
   --model_name_or_path "./pretrained/InternVL2-8B" \
   --conv_style "internlm2-chat" \
   --output_dir ${OUTPUT_DIR} \
-  --meta_path "/Workspace/Users/kevin.zhang@vgw.co/data.json" \
+  --meta_path "/Volumes/dsc_lab/dsc_sandbox_tbls/test/data.json" \
   --overwrite_output_dir True \
   --force_image_size 448 \
   --max_dynamic_patch 6 \
