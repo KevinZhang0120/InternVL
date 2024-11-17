@@ -6,7 +6,7 @@ PER_DEVICE_BATCH_SIZE=${PER_DEVICE_BATCH_SIZE:-2}
 GRADIENT_ACC=$((BATCH_SIZE / PER_DEVICE_BATCH_SIZE / GPUS))
 
 
-export PYTHONPATH="${PYTHONPATH}:/Volumes/dsc_lab/dsc_sandbox_tbls/test/InternVL-main/internvl_chat"
+export PYTHONPATH="${PYTHONPATH}:/Volumes/dsc_lab/dsc_sandbox_tbls/test/InternVL-main/internvl_chat/internvl/train/"
 export MASTER_PORT=34229
 export TF_CPP_MIN_LOG_LEVEL=3
 export LAUNCHER=pytorch
